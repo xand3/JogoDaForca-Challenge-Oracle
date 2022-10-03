@@ -51,6 +51,19 @@ body {
     align-items: center;
     flex-direction: column;
 }
+.alert {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+.alert p {
+    margin: 0;
+}
+.alert img {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
 .text p {
     font-size: 28px;
     color: var(--bg-secondary);
@@ -62,12 +75,17 @@ body {
     background-color: var(--bg-primary);
     border: none;
     font-size: 24px;
+    text-transform: uppercase;
+}
+::-webkit-input-placeholder {
+    color: var(--bg-secondary);
+    text-transform: none;
 }
 textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
-} 
+}
 
 .new-word-btns {
     display: flex;
