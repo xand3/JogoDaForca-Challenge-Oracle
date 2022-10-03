@@ -1,17 +1,63 @@
+:root {
+    --bg-primary: #F3F5FC;
+    --bg-secondary: #0A3871;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body {
-    background-color: #E5E5E5;
+    background-color: var(--bg-primary);
+    font-family: 'Red Hat Display', sans-serif;
 }
-header {
+.game-area {
     width: 100%;
-    height: 100px;
-    background-color: aqua;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.logo img {
-    margin-left: 50px;
-    margin-top: 20px;
+.start-btns {
+    display: flex;
+    flex-direction: column;
+}
+.start-btns button {
+    width: 250px;
+    height: 90px;
+    margin-bottom: 25px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+.btn-primary {
+    background-color: var(--bg-secondary);
+}
+.btn-light {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--bg-secondary);
+    color: var(--bg-secondary);
+}
+.btn-light:hover {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--bg-secondary);
+    color: var(--bg-primary);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer img {
+    width: 35px;
+}
+.icons {
+    display: flex;
 }
