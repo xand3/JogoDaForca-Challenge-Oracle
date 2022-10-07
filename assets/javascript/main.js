@@ -33,6 +33,7 @@ function addWord() {
         areaNovaPalavra.hide()
         areaInicial.show()
     }
+    novaPalavra.val("")
 }
 
 function startGame() {
