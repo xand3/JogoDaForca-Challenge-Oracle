@@ -20,6 +20,7 @@
     <title>Jogo da Forca</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <script defer src="assets/javascript/main.js"></script>
+    <script defer src="assets/javascript/canvas.js"></script>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
         <section class="init">
             <div class="game-area">
                 <div class="start-btns">
-                    <button id="start" type="button" class="btn btn-primary">Começar a jogar</button>
+                    <button onclick="startGame()" id="start" type="button" class="btn btn-primary">Começar a jogar</button>
                     <button onclick="newWord()" id="newWord" type="button" class="btn btn-light">Adicionar nova
                         palavra</button>
                 </div>
@@ -57,6 +58,21 @@
                 <div class="new-word-btns">
                     <button onclick="addWord()" type="button" class="btn btn-primary">Salvar e começar</button>
                     <button onclick="cancelNewWord()" type="button" class="btn btn-light">Cancelar</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="game">
+            <div class="game-content">
+                <canvas id="forca" height="800px" width="1200px">
+
+                </canvas>
+                <div class="sublinhado">
+
+                </div>
+                <div class="game-btns">
+                    <button onclick="startGame()" type="button" class="btn btn-primary">Novo jogo</button>
+                    <button onclick="quitGame()" type="button" class="btn btn-light">Desistir</button>
                 </div>
             </div>
         </section>
