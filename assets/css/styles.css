@@ -115,3 +115,11 @@ canvas {
 .game-btns button{
     margin-right: 15px;
 }
+.letras-erradas {
+    display: flex;
+    flex-direction: row;
+}
+.letras-erradas p {
+    font-size: 25px;
+    margin-right: 10px;
+}

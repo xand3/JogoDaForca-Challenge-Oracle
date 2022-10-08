@@ -3,6 +3,7 @@ let palavras = ["ALURA", "HTML", "WEB", "JAVASCRIPT", "ORACLE", "LOGICA"]
 const areaInicial = $(".init")
 const areaNovaPalavra = $(".new-word")
 const game = $(".game")
+let areaLetrasErradas = $(".letras-erradas")
 
 let tabuleiro = $("#forca")[0].getContext('2d')
 let novaPalavra = $("#word")
@@ -66,7 +67,7 @@ function play() {
         if(palavra.includes(letra)) {
             console.log('existe')
         } else {
-            console.log('não existe')
+            areaLetrasErradas.append(`<p>${letra}</p>`)
         }
     })
 }
