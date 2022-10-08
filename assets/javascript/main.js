@@ -7,6 +7,7 @@ const game = $(".game")
 let tabuleiro = $("#forca")[0].getContext('2d')
 let novaPalavra = $("#word")
 let palavraEscolhida = ''
+let palavra
 
 window.addEventListener('load', () => {
     areaNovaPalavra.hide()
@@ -43,6 +44,8 @@ function startGame() {
     sortWord()
     drawn()
     drawnLines()
+    play()
+    drawnForca()
 }
 
 function quitGame() {
@@ -51,8 +54,20 @@ function quitGame() {
 }
 
 function sortWord() {
-    let palavra = palavras[Math.floor(Math.random() * palavras.length)]
+    palavra = palavras[Math.floor(Math.random() * palavras.length)]
     palavraEscolhida = palavra
     console.log(palavra)
+}
+
+function play() {
+    document.addEventListener("keydown", (e) => {
+        let letra = e.key.toUpperCase()
+        console.log(letra)
+        if(palavra.includes(letra)) {
+            console.log('existe')
+        } else {
+            console.log('não existe')
+        }
+    })
 }
 
