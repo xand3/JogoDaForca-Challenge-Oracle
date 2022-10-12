@@ -20,9 +20,9 @@ function drawnLines() {
     tabuleiro.fillStyle = "#f3f5fc"
     tabuleiro.strokeStyle = "#0a3871"
 
-    const largura = 600 / palavraEscolhida.length
+    const largura = 600 / palavraSecreta.length
 
-    for(let i = 0; i < palavraEscolhida.length; i++) {
+    for(let i = 0; i < palavraSecreta.length; i++) {
         tabuleiro.moveTo(500 + (largura * i), 640)
         tabuleiro.lineTo(550 + (largura * i), 640)
     }
@@ -47,4 +47,21 @@ function drawnForca() {
     tabuleiro.moveTo(850, 150)
     tabuleiro.lineTo(850, 200)
     tabuleiro.stroke()
+}
+
+function showCorrectLetter(index) {
+    tabuleiro.font = "bold 52px Red Hat Display"
+    tabuleiro.lineCap = "round"
+    tabuleiro.fillStyle = "#0a3871"
+    tabuleiro.lineWidth = 6
+    let largura = 600 / palavraSecreta.length
+    tabuleiro.fillText(palavraSecreta[index], 500 + (largura * index), 630)
+}
+
+function showWrongLetter(letra, erros) {
+    tabuleiro.font = "bold 40px Red Hat Display"
+    tabuleiro.lineCap = "round"
+    tabuleiro.fillStyle = "#0a3871"
+    tabuleiro.lineWidth = 6
+    tabuleiro.fillText(letra, 520 + (40 * (10 - erros)), 720, 40)
 }

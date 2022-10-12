@@ -1,74 +1,89 @@
-let palavras = ["ALURA", "HTML", "WEB", "JAVASCRIPT", "ORACLE", "LOGICA"]
+let palavras = ["ALURA", "HTML", "WEB", "JAVASCRIPT", "ORACLE", "LOGICA"];
 
-const areaInicial = $(".init")
-const areaNovaPalavra = $(".new-word")
-const game = $(".game")
-let areaLetrasErradas = $(".letras-erradas")
+const areaInicial = $(".init");
+const areaNovaPalavra = $(".new-word");
+const game = $(".game");
 
-let tabuleiro = $("#forca")[0].getContext('2d')
-let novaPalavra = $("#word")
-let palavraEscolhida = ''
-let palavra
+let areaLetrasErradas = $(".letras-erradas");
 
-window.addEventListener('load', () => {
-    areaNovaPalavra.hide()
-})
+let tabuleiro = $("#forca")[0].getContext("2d");
+let novaPalavra = $("#word");
+let palavraSecreta = "";
+let palavra;
+let letras = [];
+let erros = 8
+
+window.addEventListener("load", (e) => {
+    areaNovaPalavra.hide();
+});
 
 function newWord() {
-    areaInicial.hide()
-    areaNovaPalavra.show()
-    novaPalavra.focus()
+    areaInicial.hide();
+    areaNovaPalavra.show();
+    novaPalavra.focus();
 }
 
 function cancelNewWord() {
-    areaNovaPalavra.hide()
-    areaInicial.show()
+    areaNovaPalavra.hide();
+    areaInicial.show();
 }
 
 function addWord() {
-    if(novaPalavra.val() === "" || novaPalavra.val().length < 2) {
-        alert("DIGITE UMA PALAVRA VALIDA")
+    if (novaPalavra.val() === "" || novaPalavra.val().length < 2) {
+        alert("DIGITE UMA PALAVRA VALIDA");
     } else {
-        console.log(novaPalavra.val())
-        palavras.push(novaPalavra.val().toUpperCase())
-        console.log(palavras)
-        areaNovaPalavra.hide()
-        areaInicial.show()
+        palavras.push(novaPalavra.val().toUpperCase());
+
+        areaNovaPalavra.hide();
+        areaInicial.show();
     }
-    novaPalavra.val("")
+    novaPalavra.val("");
+}
+
+function CountError() { 
+	erros -= 1
+	console.log(erros)
+}
+
+function checkWord(key, keyCode) {
+	if(keyCode >= 65 && keyCode <= 90) {
+		return true
+	} else {
+		return false
+	}
 }
 
 function startGame() {
-    areaInicial.hide()
-    game.show()
+    areaInicial.hide();
+    game.show();
 
-    sortWord()
-    drawn()
-    drawnLines()
-    play()
-    drawnForca()
+    sortSecretWord();
+    drawn();
+    drawnLines();
+    drawnForca();
+    document.addEventListener("keydown", (e) => {
+        let letra = e.key.toUpperCase()
+
+		if(checkWord(letra, e.keyCode) && palavraSecreta.includes(letra)) {
+			for(let i = 0; i < palavraSecreta.length; i++) {
+				if(palavraSecreta[i] === letra) {
+					showCorrectLetter(i)
+				}
+			}
+		} else {
+			CountError(letra)
+			showWrongLetter(letra, erros)
+		}
+    });
 }
 
 function quitGame() {
-    game.hide()
-    areaInicial.show()
+    game.hide();
+    areaInicial.show();
 }
 
-function sortWord() {
-    palavra = palavras[Math.floor(Math.random() * palavras.length)]
-    palavraEscolhida = palavra
-    console.log(palavra)
+function sortSecretWord() {
+    palavra = palavras[Math.floor(Math.random() * palavras.length)];
+    palavraSecreta = palavra;
+    console.log(palavra);
 }
-
-function play() {
-    document.addEventListener("keydown", (e) => {
-        let letra = e.key.toUpperCase()
-        console.log(letra)
-        if(palavra.includes(letra)) {
-            console.log('existe')
-        } else {
-            areaLetrasErradas.append(`<p>${letra}</p>`)
-        }
-    })
-}
-
