@@ -11,7 +11,7 @@ let novaPalavra = $("#word");
 let palavraSecreta = "";
 let palavra;
 let letras = [];
-let erros = 8
+let erros = 6
 
 window.addEventListener("load", (e) => {
     areaNovaPalavra.hide();
@@ -33,7 +33,6 @@ function addWord() {
         alert("DIGITE UMA PALAVRA VALIDA");
     } else {
         palavras.push(novaPalavra.val().toUpperCase());
-
         areaNovaPalavra.hide();
         areaInicial.show();
     }
@@ -54,6 +53,7 @@ function checkWord(key, keyCode) {
 }
 
 function startGame() {
+    console.log(letras)
     areaInicial.hide();
     game.show();
 
@@ -64,16 +64,23 @@ function startGame() {
     document.addEventListener("keydown", (e) => {
         let letra = e.key.toUpperCase()
 
-		if(checkWord(letra, e.keyCode) && palavraSecreta.includes(letra)) {
+        if(letras.includes(letra)){
+			alert("LETRA JÁ DIGITADA !")
+		} else if(checkWord(letra, e.keyCode) && palavraSecreta.includes(letra)) {
 			for(let i = 0; i < palavraSecreta.length; i++) {
 				if(palavraSecreta[i] === letra) {
 					showCorrectLetter(i)
+                    letras.push(letra)
+                    console.log(letras)
 				}
 			}
 		} else {
 			CountError(letra)
 			showWrongLetter(letra, erros)
-		}
+            letras.push(letra)
+            drawnBody(erros)
+            console.log(letras)
+        }
     });
 }
 
@@ -87,3 +94,4 @@ function sortSecretWord() {
     palavraSecreta = palavra;
     console.log(palavra);
 }
+
