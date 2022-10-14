@@ -53,7 +53,6 @@ function checkWord(key, keyCode) {
 }
 
 function startGame() {
-    console.log(letras)
     areaInicial.hide();
     game.show();
 

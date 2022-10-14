@@ -70,22 +70,44 @@ function drawnBody(erro) {
     switch (erro) {
         case 5:
             console.log("cabeça");
-            
+            tabuleiro.beginPath()
+            tabuleiro.arc(850, 230, 30, 0, 2 * Math.PI)
+            tabuleiro.stroke()
             break;
         case 4:
             console.log("tronco")
+            tabuleiro.beginPath()
+            tabuleiro.moveTo(850, 260);
+            tabuleiro.lineTo(850, 400);
+            tabuleiro.stroke();
             break;
         case 3: 
             console.log("braço esquerdo")
+            tabuleiro.beginPath()
+            tabuleiro.moveTo(850, 260);
+            tabuleiro.lineTo(800, 300);
+            tabuleiro.stroke();
             break;
         case 2: 
             console.log("braço direito")
+            tabuleiro.beginPath()
+            tabuleiro.moveTo(850, 260);
+            tabuleiro.lineTo(900, 300);
+            tabuleiro.stroke();
             break;
         case 1:
             console.log("perna esquerda")
+            tabuleiro.beginPath();
+            tabuleiro.moveTo(850, 400);
+            tabuleiro.lineTo(800, 440);
+            tabuleiro.stroke();
             break;
         case 0: 
             console.log("perna direita")
+            tabuleiro.beginPath();
+            tabuleiro.moveTo(850, 400);
+            tabuleiro.lineTo(900, 440);
+            tabuleiro.stroke();
             console.log("game over")
             break;
     }
