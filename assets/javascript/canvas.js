@@ -68,42 +68,36 @@ function showWrongLetter(letra, erros) {
 
 function drawnBody(erro) {
     switch (erro) {
-        case 5:
-            console.log("cabeça");
+        case 5: // cabeça
             tabuleiro.beginPath()
             tabuleiro.arc(850, 230, 30, 0, 2 * Math.PI)
             tabuleiro.stroke()
             break;
-        case 4:
-            console.log("tronco")
+        case 4: // tronco
             tabuleiro.beginPath()
             tabuleiro.moveTo(850, 260);
             tabuleiro.lineTo(850, 400);
             tabuleiro.stroke();
             break;
-        case 3: 
-            console.log("braço esquerdo")
+        case 3: // braço esquerdo
             tabuleiro.beginPath()
             tabuleiro.moveTo(850, 260);
             tabuleiro.lineTo(800, 300);
             tabuleiro.stroke();
             break;
-        case 2: 
-            console.log("braço direito")
+        case 2: // braço direito
             tabuleiro.beginPath()
             tabuleiro.moveTo(850, 260);
             tabuleiro.lineTo(900, 300);
             tabuleiro.stroke();
             break;
-        case 1:
-            console.log("perna esquerda")
+        case 1: // perna esquerda
             tabuleiro.beginPath();
             tabuleiro.moveTo(850, 400);
             tabuleiro.lineTo(800, 440);
             tabuleiro.stroke();
             break;
-        case 0: 
-            console.log("perna direita")
+        case 0: // perna direita
             tabuleiro.beginPath();
             tabuleiro.moveTo(850, 400);
             tabuleiro.lineTo(900, 440);
@@ -111,4 +105,20 @@ function drawnBody(erro) {
             console.log("game over")
             break;
     }
+}
+
+function loser() {
+    tabuleiro.font = "bold 40px Red Hat Display";
+    tabuleiro.lineCap = "round";
+    tabuleiro.fillStyle = "red";
+    tabuleiro.lineWidth = 6;
+    tabuleiro.fillText("Você perdeu :/", 900, 200);
+}
+
+function winner() { 
+    tabuleiro.font = "bold 40px Red Hat Display";
+    tabuleiro.lineCap = "round";
+    tabuleiro.fillStyle = "green";
+    tabuleiro.lineWidth = 6;
+    tabuleiro.fillText("Você ganhou !", 880, 200, 200);
 }

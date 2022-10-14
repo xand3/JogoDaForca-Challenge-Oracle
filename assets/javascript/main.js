@@ -12,6 +12,7 @@ let palavraSecreta = "";
 let palavra;
 let letras = [];
 let erros = 6
+let letrasCorretas = []
 
 window.addEventListener("load", (e) => {
     areaNovaPalavra.hide();
@@ -71,6 +72,7 @@ function startGame() {
 					showCorrectLetter(i)
                     letras.push(letra)
                     console.log(letras)
+                    letrasCorretas.push(letra)
 				}
 			}
 		} else {
@@ -79,6 +81,11 @@ function startGame() {
             letras.push(letra)
             drawnBody(erros)
             console.log(letras)
+        }
+        if(erros === 0) {
+            loser()
+        } else if(letrasCorretas.length === palavraSecreta.length) {
+            winner()
         }
     });
 }
