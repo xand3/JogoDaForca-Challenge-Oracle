@@ -5,3 +5,4 @@
 
 <img width="600px" height="auto"  src="assets/img/jogo-da-forca.png"></img>
 
+<img width="600px" height="auto"  src="assets/img/jogo-da-forca-resultado.png"></img>
